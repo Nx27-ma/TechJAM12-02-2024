@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject enemy;
+    Controller controller;
     void Start()
     {
-        
+        Controller controller = GetComponent<Controller>();
+       
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        //Physics.Raycast(currentGameObject, -transform.up, controller.ScreenHeight1);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, -transform.up,  out hit, controller.ScreenHeight1))
+            print("Found an object - distance: " + hit.distance);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-
+    GameObject Enemy;
     GameObject[,] enemyArray;
     float Width;
     float Height;
@@ -12,30 +12,33 @@ public class EnemyBehaviour : MonoBehaviour
     int enemyYAmount;
     float MarginWidth;
     float MarginHeight;
+    float enemyLocX;
+    float enemyLocY;
     void Start()
     {
         Controller controller = GetComponent<Controller>();
         Enemy enemy = GetComponent<Enemy>();
-        Width = controller.ScreenWidth1;
-        Height = controller.ScreenHeight1;
-        MarginWidth = Width / (float)0.9;
-        MarginHeight = Height / (float)0.9;
+        Width = controller.ScreenWidth1 * 0.9f;
+        Height = controller.ScreenHeight1 * 0.9f;
         enemyXAmount = 6;
         enemyYAmount = 6;
+
+        enemyLocX = Width / enemyXAmount;
+        enemyLocY = Height / enemyYAmount;
 
         enemyArray = new GameObject[(int)Width, (int)Height];
         for (int i = 0; i < enemyXAmount; i++)
         {
             for (int j = 0; j < enemyYAmount; j++)
             {
-                enemyArray[i, j] = new GameObject();
+                enemyArray[i, j] = Instantiate(Enemy, );
             }
         }
     }
 
     void Update()
     {
-        
+
     }
 
     void Actualbehaviour()
