@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool IsMovingRight = true;
 
-    // Update is called once per frame
-    void Update()
+    public Transform checkedleft;    public Transform checkedright;    public Transform checkerleft;    public Transform checkerright;
+
+    private void Update()
     {
-        
+        if (IsMovingRight)
+        {
+            transform.Translate(Vector2.right * 12f * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector2.left * 12f * Time.deltaTime);
+        }
     }
 }
