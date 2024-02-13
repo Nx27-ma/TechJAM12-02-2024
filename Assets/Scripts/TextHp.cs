@@ -10,7 +10,7 @@ public class playerhealth : MonoBehaviour
     {
         GameObject textObj = GameObject.FindGameObjectWithTag("Text");
         TextMeshProUGUI text = textObj.GetComponent<TMPro.TextMeshProUGUI>();
-        text.text = "HP: " + health.ToString();
+        text.text = "Lives: " + health.ToString();
 
         if (health <= 0)
         {
