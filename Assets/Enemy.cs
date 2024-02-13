@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    /*
     private void Update()
     {
-        StartCoroutine(bullet());
+        StartCoroutine("bullet");
     }
 
-    void bullet()
+    private void bullet()
     {
-
-
         yield return new WaitForSeconds(.1f);
     }
-
+    */
 }
