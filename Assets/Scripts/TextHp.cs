@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class playerhealth : MonoBehaviour
+public class TextHp : MonoBehaviour
 {
-    public GameObject displayHpObject;
     public float health = 10;
 
     private void FixedUpdate()
@@ -14,7 +14,7 @@ public class playerhealth : MonoBehaviour
 
         if (health <= 0)
         {
-            System.Environment.Exit(0);
+            SceneManager.LoadScene("unity");
         }
     }
 }

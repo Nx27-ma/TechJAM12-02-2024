@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Projectile : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class Projectile : MonoBehaviour
 
 	public float speed;
 
-	private void Update()
+    private void Start()
+    {
+        transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+    }
+
+    private void Update()
 	{
 		transform.position += direction * speed * Time.deltaTime;
 		Invoke("KillThyself", 5);
