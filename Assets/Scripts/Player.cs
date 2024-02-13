@@ -5,10 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Projectile laserPrefab;
-    
     public float speed = 5.0f;
+    private Collider2D bulletHitBox;
 
-    private void Update()
+    void Start()
+    {
+
+        bulletHitBox = GetComponent<Projectile>().GetComponent<Collider2D>();
+       
+    }
+     void Update()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             this.transform.position += Vector3.left * this.speed * Time.deltaTime;
@@ -20,8 +26,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    void Shoot()
     {
         Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }

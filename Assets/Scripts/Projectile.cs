@@ -11,6 +11,12 @@ public class Projectile : MonoBehaviour
 
 	private void Update()
 	{
-		this.transform.position += this.direction * this.speed * Time.deltaTime;
+		transform.position += direction * speed * Time.deltaTime;
+		Invoke("KillThyself", 5);
+	}
+
+	void KillThyself()
+	{
+		Destroy(gameObject);
 	}
 }
